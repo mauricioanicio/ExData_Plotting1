@@ -8,6 +8,8 @@ hpc$Date <- dmy(hpc$Date)
 
 hpc<- hpc[hpc$DateTime >= "2007-02-01 00:00:00" & hpc$DateTime < "2007-02-03 00:00:00" & !is.na(hpc$DateTime),]
 
+png(filename = "plot4.png")
+
 par(mfcol=c(2,2))
 
 plot(hpc$DateTime, hpc$Global_active_power, type="l",xlab = "", ylab = "Global Active Power (kilowatts)")
@@ -21,8 +23,5 @@ legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_
 plot(hpc$DateTime, hpc$Voltage, type="l",xlab = "datetime", ylab = "Voltage")
 
 plot(hpc$DateTime, hpc$Global_reactive_power, type="l",xlab = "datetime", ylab = "Global_reactive_power")
-
-
-dev.copy(png, filename = "plot4.png")
 
 dev.off()
