@@ -10,6 +10,8 @@ hpc<- hpc[hpc$DateTime >= "2007-02-01 00:00:00" & hpc$DateTime < "2007-02-03 00:
 
 par(mfcol=c(1,1))
 
+png(filename = "plot3.png")
+
 plot(hpc$DateTime, hpc$Sub_metering_1, type="n", ylab = "Energy sub metering", xlab = "")
 lines(hpc$DateTime, hpc$Sub_metering_1, col = "black")
 lines(hpc$DateTime, hpc$Sub_metering_2, col = "red")
@@ -17,6 +19,6 @@ lines(hpc$DateTime, hpc$Sub_metering_3, col = "blue")
 
 legend("topright", legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"), col = c("black", "red", "blue"), lty = 1)
 
-dev.copy(png, filename = "plot3.png")
+# dev.copy(png, filename = "plot3.png")
 
 dev.off()
